@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: password
+  host: localhost
+
+development:
+  <<: *default
+  database: notes_development
+
+test:
+  <<: *default
+  database: notes_test
+
+production:
+  <<: *default
+  database: notes_production
+  # username: notes
+  # password: <%= ENV['NOTES_DATABASE_PASSWORD'] %>
